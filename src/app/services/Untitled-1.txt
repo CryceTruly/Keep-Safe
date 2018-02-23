@@ -1,0 +1,8 @@
+export class ChatMessage{
+	$key?:string;
+	email?:string;
+	message?:string;
+	userName?:string;
+	sent?:Date=new Date();
+	type?:string="text";
+}

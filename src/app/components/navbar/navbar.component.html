@@ -1,0 +1,61 @@
+<div *ngIf='userid; else nouserYet'>
+
+
+<nav class=" black lighten-3">
+  <div class="container">
+      <div class="nav-wrapper">
+          <a a routerLink="" class="brand-logo">{{appName}}</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a routerLink="/units">Health Care Units</a></li>
+            <li><a routerLink="/cases">Reported Cases</a></li>
+            <li><a routerLink="/councillors">Consellors</a></li>
+  <!-- 
+            <li><a href="#"><img src="../assets/img/profile.jpg" alt="" class="materialboxed"></a></li> -->
+            <li><a routerLink="/account">Account</a>
+          
+          </li> 
+    
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><a routerLink="/units">Health Care Units</a></li>
+            <li><a routerLink="/cases">Reported Cases</a></li>
+            <li><a routerLink="/councillors">Consellors</a></li>
+  <!-- 
+            <li><a href="#"><img src="../assets/img/profile.jpg" alt="" class="materialboxed"></a></li> -->
+           <li><a routerLink="/account">Account</a>
+            
+          </li> 
+    
+          </ul>
+        </div>
+  </div>
+     
+    </nav>
+
+
+      </div>
+
+      <ng-template #nouserYet>
+        <nav class=" black lighten-3">
+          <div class="container">
+              <div class="nav-wrapper">
+                  <a a routerLink="" class="brand-logo">{{appName}}</a>
+                  <a href="#" data-activates="mobile-demo" class="button-collapse">
+                    <i class="material-icons">menu</i></a>
+                  <ul class="right hide-on-med-and-down">
+                    <li><a routerLink="/login">Login</a></li>
+                  
+            
+                  </ul>
+                  <ul class="side-nav" id="mobile-demo">
+                    <li><a routerLink="/login">Login</a></li>
+                    
+                  
+            
+                  </ul>
+                </div>
+          </div>
+             
+            </nav>
+      </ng-template>

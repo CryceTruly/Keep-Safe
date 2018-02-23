@@ -1,0 +1,100 @@
+<div class="preloader-wrapper small active preloader" id="preloader">
+  <div class="spinner-layer spinner-green-only">
+    <div class="circle-clipper left">
+      <div class="circle"></div>
+    </div><div class="gap-patch">
+      <div class="circle"></div>
+    </div><div class="circle-clipper right">
+      <div class="circle"></div>
+    </div>
+  </div>
+</div>
+<div *ngIf='consellors?.length>0 ; else noCounsellorsYet'>
+  
+<ul class="collection" *ngFor="let consellor of consellors">
+   
+     <li class="collection-item">
+  {{consellor.name}} <span class="right blue-text">{{consellor.gender}}</span>
+ 
+     </li>
+     <li class="collection-item">
+        {{consellor.email}}
+     </li>
+          
+                 <li class="collection-item">
+                    {{consellor.profile}}
+                 </li>
+                       <li class="collection-item">
+                          {{consellor.status}}
+                       </li>
+                             
+                             <li class="collection-item">
+
+<a  class="secondary-content">
+  <i (click)="tooglestate(consellor)"  class="material-icons">edit</i>
+  <i *ngIf="editState && councillorToEdit.id==consellor.id" (click)="clearState()" class="material-icons">close</i>
+</a>
+  <div *ngIf="editState && councillorToEdit.id==consellor.id">
+    <form (ngSubmit)="updateConsellor(consellor)" class="form col s12 m6" >
+
+      <div class="row">
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="icon_prefix" type="text" [(ngModel)]="consellor.name" name="name" required minlength="3" class="validate">
+       
+          </div>
+  
+  
+          <div class="input-field col s12 m6">
+            <i class="material-icons prefix">email</i>
+            <input id="icon_prefix" type="email" [(ngModel)]="consellor.email" name="email" class="validate" minlength="5">
+       
+          </div>
+  
+  
+        <div class="input-field col s12 m6">
+            <i class="material-icons prefix">announcement</i>
+          <textarea type="text" [(ngModel)]="consellor.profile" maxlength="300" class="materialize-textarea" name="profile" minlength="25"></textarea>
+       
+        </div>
+  
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix">save</i>
+        <input type="text" [(ngModel)]="consellor.gender" maxlength="6"  name="gender">
+       
+      </div>
+    
+  
+        
+        
+        <input type="submit" value="Update" class="btn blue  waves-effect">
+        <button class="btn red" (click)="deleteConsellor($event,consellor)">Remove</button>
+     
+      </div>
+  
+    </form>
+  </div>
+
+
+
+
+
+
+                             </li>
+                                   
+                            </ul>
+    
+  </div>
+
+  <ng-template #noCounsellorsYet>
+    <h4 class="center-align">No councilors yet</h4>
+
+
+
+
+    
+  </ng-template>
+
+
+   <!-- FIXED ACTION BUTTON -->
+   <a class="btn-floating btn-large waves-effect waves-light red" routerLink="/addcounsellor" id="floating_button"><i class="material-icons">add</i></a>

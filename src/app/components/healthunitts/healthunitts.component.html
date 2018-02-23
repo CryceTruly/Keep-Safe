@@ -1,0 +1,125 @@
+<div *ngIf='units?.length>0 ; else noUnitsYets'>
+
+
+    <ul *ngFor='let unit of units' class="collection">
+        <li class="collection-item">
+    <strong> {{unit.name}}</strong> <span class="right blue-text"> {{unit.locality}}</span>
+        </li>
+       
+             
+                    <li class="collection-item">
+                       {{unit.description}}
+                          </li>
+                          <li class="collection-item">
+                             {{unit.open}}
+                                </li>
+                              <li class="collection-item">
+                                      
+<a  class="secondary-content">
+<i (click)="tooglestate(unit)" class="material-icons">edit</i>
+ <i *ngIf="editState && unitToEdit.id==unit.id" (click)="clearState()" class="material-icons">close</i>
+                                          </a>
+  <div *ngIf="editState && unitToEdit.id==unit.id">
+      <form (ngSubmit)="editHealthUnit($event,unit)" class="form col s12 m6" >
+
+          <div class="row">
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" placeholder="HealthUnit Name" [(ngModel)]="unit.name" name="name">~
+              </div>
+              <div class="input-field col s12 m6">
+                <i class="material-icons prefix">phone</i>
+                <input id="icon_telephone" type="tel" placeholder="HealthUnit Phone" class="validate" [(ngModel)]="unit.phone" name="phone">
+             
+              </div>
+          
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">place</i>
+              <input type="text" placeholder="Health Unit District"  [(ngModel)]="unit.locality" name="locality">
+        
+            </div>
+      
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">map</i>
+              <input type="text" placeholder="Health Unit Region" [(ngModel)]="unit.province" name="province">
+        
+            </div>
+            <!-- <div class="input-field col s12 m6">
+      
+                <i class="material-icons prefix">place</i>
+                <select [(ngModel)]="unit.province" name="province">
+                    <option value="" disabled selected>Choose the region</option>
+                    <option  [(ngModel)]="unit.province" name="province" value="Western">Western Uganda</option>
+                    <option  [(ngModel)]="unit.province" name="province" value="Southern">Southern Uganda</option>
+                    <option  [(ngModel)]="unit.province" name="province"  value="Northern">Northern Uganda</option>
+                    <option   [(ngModel)]="unit.province" name="province" value="Eastern">Eastern Uganda</option>
+                  </select>
+                  <label>Health Unit Region</label>
+            </div> -->
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">announcement</i>
+              <textarea type="text" placeholder="Health Unit Description" [(ngModel)]="unit.description" maxlength="300" class="materialize-textarea" name="description"></textarea>
+         
+            </div>
+            <div class="input-field col s12 m6">
+                <i class="material-icons prefix">access_time</i>
+              <input type="text" [(ngModel)]="unit.open" name="open" placeholder="Working hours">
+       
+            </div>
+            <input type="submit" value="Update" (click) ="editHealthUnit($event,unit)" class="btn blue  waves-effect">
+            <button class="btn red" (click)="deleteUnit($event,unit)">Delete</button>
+          </div>
+      
+        </form>  </div>
+                                          
+                                          
+                                          
+                                          
+                                          
+                                          
+                                                                       </li>
+                                      </ul>
+                                   
+
+ 
+</div>
+<ng-template #noUnitsYets class="center">
+  <h5>You have not added any healthunits click the plus sign in the bottom of the screen to add new</h5>
+</ng-template>
+
+<!-- //preloader -->
+
+<div class="preloader">
+    <div class="preloader-wrapper big active align-center">
+        <div class="spinner-layer spinner-green-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+</div>
+ <!-- FIXED ACTION BUTTON -->
+   <div class="fixed-action-btn">
+      <a class="btn-floating red btn-large"><i class="large material-icons">add</i></a>
+      <ul>
+        <li><a routerLink="/addhealthunit" class="btn-floating yellow btn-large"><i class="large material-icons">spa</i></a></li>
+        <li><a routerLink="/addcounsellor" class="btn-floating blue btn-large"><i class="large material-icons">person add</i></a></li>
+        </ul>
+    </div>
+
+   <!-- MODAL STRUCTURE -->
+   <div id="addunitmodal" class="modal">
+      <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+      </div>
+      <div class="modal-footer">
+        <a href="" class="modal-action modal-close waves-effect waves-green">Button</a>
+      </div>
+    </div>
+
+

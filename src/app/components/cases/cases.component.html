@@ -1,0 +1,29 @@
+<!-- <div class="available" *ngIf="cases?.length>0;  else nocases"> -->
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th> <th>District</th><th>Case</th> <th>Occur Date</th> 
+        <th>Phone</th>  <th>Reported</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let case of cases">
+        <td>{{case.user}}</td> 
+         <td>{{case.district}}</td>
+        <td>{{case.description}}</td>
+        <td>{{case.happened}}</td>
+        <td>{{case.phone}}</td>
+        <td>{{case.reported|pipe}</td>
+      </tr>
+    </tbody>
+
+ 
+  </table>
+
+<!-- </div> -->
+
+<!-- <ng-template #nocases>
+  <h5>There are no reported cases at the moment</h5>
+</ng-template> -->
