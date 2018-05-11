@@ -3,6 +3,13 @@
     left: 40%;
     top: 40%;
 }
+#floating_button{
+  position: fixed;
+  bottom: 0%;
+ top :0px;
+
+
+}
 
 .preloader-wrapper{
     position: absolute !important;
@@ -10,11 +17,3 @@
     top: 40%;
 }
 
-#floating_button{
-    position: absolute;
-    top: 70%;
-    left: 80%;
-  
-
-
-}

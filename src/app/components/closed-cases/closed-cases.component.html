@@ -1,0 +1,41 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        CaseId
+      </th>
+
+      <th>
+          Reporter
+        </th>
+        <th>
+            reported
+          </th>
+
+          <th>
+              Closed
+            </th>
+
+            <th>
+                Information
+              </th>
+
+              <th>
+                  ClosedBy
+                </th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <tr *ngFor="let case of cases">
+
+      <td>{{case.id}}</td>
+      <td>{{case.phone}}</td>
+      <td>{{case.happened}}</td>
+      <td>{{case.closedat| timeAgo}}</td>
+      <td>{{case.info}}</td>
+      <td>{{case.closedby}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -5,11 +5,8 @@
 
 
 }
-
-.preloader{
-    position: absolute;
-    top:30%;
-    left:50%;
-    visibility: hidden;
-   
+.preloader-wrapper{
+  position: absolute !important;
+  left: 50%;
+  top: 40%;
 }

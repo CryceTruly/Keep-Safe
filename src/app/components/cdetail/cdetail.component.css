@@ -1,0 +1,11 @@
+#preloader{
+  position: absolute !important;
+  left: 40%;
+  top: 40%;
+}
+
+.preloader-wrapper{
+  position: absolute !important;
+  left: 50%;
+  top: 40%;
+}

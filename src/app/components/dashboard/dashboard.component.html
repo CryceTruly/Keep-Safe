@@ -1,96 +1,85 @@
 <div class="row">
-    <div class="col s12 m4"><div class="card-panel grey">
+    <div class="col s4">
 
 
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Health Centers</span><a routerLink="/addunit" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-              <h3>{{unitcount}}</h3>
-            </div>
-            <div class="card-action">
-              <a routerLink="/units">View</a>
-              
+        <div class="card  z-depth-5">
+            <div class="card-content">
+              <h5 class="center-align">Health Units<span><i class="material-icons">home</i></span></h5>
+              <h5 class="center-align blue-text darken-4"><strong>{{unitcount}}</strong></h5>
             </div>
           </div>
 
 
 
-    </div></div>
-    <div class="col s12 m4"><div class="card-panel grey">
+    </div>
+    <div class="col s4">
 
 
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Councillors</span><a routerLink="/addcounsellor" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-              <h3>{{consellorcount}}</h3>
-            </div>
-            <div class="card-action">
-              <a routerLink="/councillors">View</a>
-              
+        <div class="card z-depth-5">
+            <div class="card-content">
+              <h5 class="center-align">Consellors<span><i class="material-icons">person</i></span></h5>
+            <h5 class="center-align blue-text darken-4"><strong>{{consellorcount}}</strong></h5>
             </div>
           </div>
 
 
-    </div></div>
-    <div class="col s12 m4"><div class="card-panel grey">
-        <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Cases</span><a routerLink="/cases" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">visibility</i></a>
-              <h3>{{casecount}}</h3>
-            </div>
-            <div class="card-action">
-              <a routerLink="/cases">View</a>
-            
+    </div>
+    <div class="col s4">
+        <div class="card z-depth-5">
+            <div class="card-content">
+              <h5 class="center-align">Cases<span><i class="material-icons">warning</i></span></h5>
+              <h5 class="center-align blue-text darken-4"><strong>{{casecount}}</strong></h5>
             </div>
           </div>
 
 
 
 
-    </div></div>
+    </div>
+    </div>
 
+
+<div class="row">
+  <div class="col s12">
+    <div #chart>
+
+    </div >
+  </div>
+  <div class="col s12">
+    <div #pie>
+
+    </div>
+  </div>
+</div>
+
+ <!-- TAP TARGET -->
+ <div class="fixed-action-btn">
+  <a id="menu" onclick="$('.tap-target').tapTarget('open')"
+  class="waves-effect waves-light btn btn-floating btn-large red">
+    <i class="material-icons">menu</i>
+  </a>
+</div>
+
+<!-- TAP TARGET CONTENT -->
+<div class="tap-target cyan" data-activates="menu">
+  <div class="tap-target-content white-text">
+    <h5>About</h5>
+    <p class="white-text">Keep Safe version 1.0</p>
+  </div>
+</div>
 
       <!-- FIXED ACTION BUTTON -->
       <div class="fixed-action-btn">
-          <a href="#" class="btn-floating black btn-large"><i class="large material-icons">add</i></a>
+          <a href="#" class="btn-floating red btn-large"><i class="large material-icons">add</i></a>
           <ul>
-              <li><a routerLink="/addhealthunit" class="btn-floating yellow btn-large"><i class="large material-icons">spa</i></a></li>
-              <li><a routerLink="/addcounsellor" class="btn-floating blue btn-large"><i class="large material-icons">person add</i></a></li>
-              </ul>
-        </div>
-<hr>
-        <h3>Reported cases in 2018</h3>
+              <li><a routerLink="/addvht" class="btn-floating cyan btn-large tooltipped" data-position="top" data-tooltip="Add VHT Member"><i class="large material-icons">person</i></a></li>
+              <li><a routerLink="/adddistrict" class="btn-floating green btn-large tooltipped" data-position="top" data-tooltip="Add new District"><i class="large material-icons">place</i></a></li>
+              <li><a routerLink="/addcounsellor" class="btn-floating blue btn-large tooltipped" data-position="top" data-tooltip="Add new Consellor"><i class="large material-icons">person</i></a></li>
+              <li><a routerLink="/addhealthunit" class="btn-floating yellow btn-large tooltipped" data-position="top" data-tooltip=" Add a new Health Unit"><i class="large material-icons">home</i></a></li>
 
-        <div class="row">
-          <div class="col s12">
-            <ul class="tabs">
-              <li class="tab col s6 m6"><a href="#test1">Top Districts</a></li>
-              
-              <li class="tab col s6 m6"><a class="active" href="#test2">Top Months</a></li>
-              </ul>
-          </div>
-          <div id="test1" class="col s12"> <!-- CIRCULAR -->
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fuga ea excepturi neque voluptas, modi odio illum totam voluptates, expedita ab mollitia, amet sunt porro accusamus nam cupiditate eius officiis.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, minima. Ea voluptate ut laboriosam dolore asperiores? Voluptas corporis ipsam dolorem voluptatem, officiis ipsa modi quasi voluptatibus neque perferendis laboriosam nihil! <div class="preloader-wrapper big active">
-              <div class="spinner-layer spinner-blue-only">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
-              </div>
-            </div>
-       </div>
-          <div id="test2" class="col s12"><div class="progress">
-            <div class="indeterminate"></div>
-          </div>
-    </div>
-          
+            </ul>
         </div>
 
-  </div>
 
-  
-      
+
+

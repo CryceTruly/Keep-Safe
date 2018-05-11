@@ -1,0 +1,67 @@
+  <div class="card small">
+    <div class="card-image">
+      <img src="../../../assets/img/profile.jpg">
+      <span class="card-title">{{ (unit1 | async)?.name }}</span>
+    </div>
+
+      <ul class="collection">
+        <li class="collection-item"><strong>Name:</strong>{{ (unit1 | async)?.name }}</li>
+        <li class="collection-item"><strong>Description : </strong> {{ (unit1 | async)?.description }}</li>
+        <li class="collection-item"><strong>Locality: </strong> {{ (unit1 | async)?.locality }}</li>
+        <li class="collection-item"><strong>Phone: </strong> {{ (unit1| async)?.phone }}</li>
+        <li class="collection-item"><strong>Open: </strong> {{ (unit1 | async)?.open }}</li>
+        <li class="collection-item"><strong>added: </strong> {{ (unit1 | async)?.added }}</li>
+      </ul>
+
+
+
+      <a  class="secondary-content">
+        <i (click)="tooglestate(unit)" class="material-icons">edit</i>
+         <i *ngIf="editState && unitToEdit.id==unit.id" (click)="clearState()" class="material-icons">close</i>
+                                                  </a>
+
+      <div *ngIf="editState && unitToEdit.id==unit.id">
+        <form (ngSubmit)="editHealthUnit($event,unit)" class="form col s12 m6" >
+
+            <div class="row">
+                <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="icon_prefix" type="text" placeholder="HealthUnit Name" [(ngModel)]="unit.name" name="name">
+                </div>
+                <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">phone</i>
+                  <input id="icon_telephone" type="tel" placeholder="HealthUnit Phone" class="validate" [(ngModel)]="unit.phone" name="phone">
+
+                </div>
+
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">place</i>
+
+                  <select name="selected" materialize="material_select"  [(ngModel)]="selected"
+                  [materializeSelectOptions]="items">
+            <option *ngFor=" let item of items" value= {{item}}>
+               {{item}}
+             </option>
+           </select>
+                <label for="exampleFormControlSelect1">Choose Health Unit District</label>
+              </div>
+
+
+
+              <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">announcement</i>
+                <textarea type="text" placeholder="Health Unit Description" [(ngModel)]="unit.description" maxlength="300" class="materialize-textarea" name="description"></textarea>
+
+              </div>
+              <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">access_time</i>
+                <input type="text" [(ngModel)]="unit.open" name="open" placeholder="Working hours">
+
+              </div>
+              <input type="submit" value="Update" (click) ="updateItem(id)" class="btn blue  waves-effect">
+              <button class="btn red" (click)="deleteUnit($event,id)">Delete</button>
+            </div>
+
+          </form>  </div>
+
+  </div>

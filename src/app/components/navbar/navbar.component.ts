@@ -19,7 +19,7 @@ import * as firebase from 'firebase/app';
 export class NavbarComponent implements OnInit {
   appName = 'KeepSafe';
 
-  private user: Observable<firebase.User>;
+  user: Observable<firebase.User>;
   private authState: any;
 
 
@@ -32,20 +32,18 @@ userid:boolean;
     // Init Modal
     $('.modal').modal();
     $('.button-collapse').sideNav();
-    this.user = afa.authState;
-    this.user = this.authUser();
-      this.user.subscribe(user => {
-        if(user.uid.length>0){
+    this.user = this.auth.authUser();
 
-        this.userid=true;
-        }else{
-          this.userid=false;
-          this.router.navigate(['/login']);
-        }
-       
-        
-        });
-        
+    this.user.subscribe(user => {
+      if (user) {
+console.log(true);
+
+
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+
 
   }
   authUser() {
@@ -53,13 +51,15 @@ userid:boolean;
   }
 
   ngOnInit() {
-      // Init Modal
-      $('.modal').modal();
     $('.button-collapse').sideNav();
+  $(document).ready(function(){
+    $('.dropdown-trigger').dropdown();
+  });
   }
 
 
   logout(){
     this.auth.logout();
+    this.router.navigate(['/login']);
   }
 }

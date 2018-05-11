@@ -3,54 +3,54 @@
 <div class="row">
   <div class="col s12 m2"></div>
   <div class="col s12 m8">
-      <div class="card card1">
+      <div class="card card1 z-depth-4">
           <div class="card-content">
             <span class="card-title">Sign In to Account</span>
-            <a class="btn-floating halfway-fab waves-effect waves-light red" (click)="checkUserSignIn()"><i class="material-icons">send</i></a>
-           
+
             <form class="loginform">
-               
+
                 <div class="input-field">
                     <i class="material-icons prefix">email</i>
                     <input type="email" id="email" class="validate" [(ngModel)]="email" name="email">
                     <label  for="email">Email</label>
                   </div>
-      
+
                   <div class="input-field">
                       <i class="material-icons prefix">lock</i>
                       <input type="password" class="validate" minlength="8" [(ngModel)]="password" id="password" name="password">
                       <label class="active" for="password" >Password</label>
                     </div>
+                    <input type="submit" (click)="checkUserSignIn()" class="btn waves-effect sm">
+
                 </form>
-         
+
                 <div class="progress preloader" id="preloader">
                     <div class="indeterminate"></div>
                   </div>
           </div>
           <div class="card-action">
             <a class="white red-text" (click)="modifyPassword()">Modify Password</a>
-            
+
           </div>
         </div>
         <!-- CARDS -->
-        <div class="card test">
+        <div class="card test z-depth-4">
             <div class="card-content">
               <span class="card-title black-text">Enter your Email</span>
               <div class="input-field">
-                
+
                   <i class="material-icons prefix">email</i>
                   <input id="icon_prefix" type="email" [(ngModel)]="email" name="email" class="validate" minlength="5">
                   <label for="icon_prefix">User Email</label>
                 </div>
-            
+
             </div>
             <div class="card-action">
               <a (click)="sendPasswordResetEmail()" class="black-text">Send Password Reset Email</a>
               <a (click)="hideMe()" class="blue-text">Login Instead</a>
-              
+
             </div>
           </div>
    </div>
   <div class="col s12 m2"></div>
 </div>
- 

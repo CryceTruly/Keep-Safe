@@ -23,9 +23,10 @@ export class UploadService {
   photoDownloadUrl:Observable<String>;
   selectedFiles: FileList;
 //upload function
-startUpload(files,name,locality,lat,lng,added,description,province,open,photo){
+
+startUpload(phone,files,name,locality,lat,lng,added,description,province,open){
  console.log('uploading started');
-  const file=files;
+  let file=files;
   if(file.type.split('/')[0]!=='image'){
     Materialize.toast('Picked file is not an image',2000);
     return;
@@ -40,14 +41,15 @@ startUpload(files,name,locality,lat,lng,added,description,province,open,photo){
   this.photoDownloadUrl=this.task.downloadURL();
 
   console.log(this.photoDownloadUrl);
- 
- 
+
+
   //sets up a unit object  for writing
 
 
 const data={
-  name:name,
+  phone:phone,
   photo:path,
+  name:name,
   locality:locality,
   lat:lat,
   lng:lng,
@@ -57,7 +59,6 @@ const data={
   open:open
 }
 
-//calls the service to add a new document to firestore
 this.unitService.addHealthUnit(data);
 
 }
@@ -79,8 +80,8 @@ startUploadForCouncillor(files,name,email,gender,status,photo,profile){
   this.photoDownloadUrl=this.task.downloadURL();
 
   console.log(this.photoDownloadUrl);
- 
- 
+
+
   //sets up a unit object  for writing
 
   const councillor:Consellor={

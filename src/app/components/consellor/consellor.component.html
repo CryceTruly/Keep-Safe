@@ -1,0 +1,43 @@
+<div class="preloader">
+    <div class="preloader-wrapper big active align-center">
+        <div class="spinner-layer spinner-green-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+</div>
+<nav>
+  <div class="nav-wrapper blue darken-1 z-index-5">
+    <div class="col s12">
+      <a  class="breadcrumb">Home</a>
+      <a  class="breadcrumb">Counselors</a>
+      <a  class="breadcrumb">Counselor Detail</a>
+    </div>
+  </div>
+</nav>
+<div class="col s12 m7">
+    <h3 class="header">{{ (consellor | async)?.name }}</h3>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>{{ (consellor | async)?.profile }}</p>
+          <ul class="collection">
+            <li class="collection-item"> <strong>Gender </strong> : {{ (consellor | async)?.gender }}</li>
+            <li class="collection-item"> <strong>email </strong> : {{ (consellor | async)?.email }}</li>
+            <li class="collection-item"><strong>Last on</strong>: {{ (consellor | async)?.status }}</li>
+          </ul>
+        </div>
+        <div class="card-action">
+            <i (click)="deleteConsellor($event,consellor)"  class="material-icons">delete</i>
+        </div>
+      </div>
+    </div>
+  </div>

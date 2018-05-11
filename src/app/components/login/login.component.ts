@@ -25,22 +25,18 @@ private authState: any;
 authUser() {
   return this.user;
 }
-        
 
-  constructor(private authServic:AuthService,private router:Router,private afa: AngularFireAuth) { 
+
+  constructor(private authServic:AuthService,private router:Router,private afa: AngularFireAuth) {
     this.user=afa.authState;
-    this.user = this.authUser();
-      this.user.subscribe(user => {
-        if(user.uid.length>0){
-this.router.navigate(['dashboard']).catch(err=>{
-console.log(err);}
-);
-        }else{
-          this.router.navigate(['/login']);
-        }
-       
-        
-        });
+    this.authServic.authUser().subscribe(user=>{
+      if(user){
+
+        this.router.navigate(['/dashboard']);
+
+      }
+    });
+
   }
 
   ngOnInit() {
@@ -79,7 +75,7 @@ this.authServic.login(this.email,this.password).catch(e=>{
 console.log('hello');
 });
           console.log(1);
-  
+
   }
 
 
@@ -106,6 +102,6 @@ return;
 
     console.log(1);
     this.authServic.requestPasswordReset(this.email);
-   
+
   }
 }

@@ -20,7 +20,7 @@ export class AuthService {
 uid;
   consellorsCollection: AngularFirestoreCollection<Consellor>;
   constructor(private afAuth: AngularFireAuth, private db: AngularFirestore, private router: Router) {
-    this.consellorsCollection = db.collection<Consellor>('counsellors');
+      this.consellorsCollection = db.collection<Consellor>('counsellors');
       this.user = afAuth.authState;
     }
 
@@ -39,45 +39,43 @@ uid;
       return this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then((user) => {
           this.authState = user;
-          //this.setUserStatus('online');
-          this.router.navigate(['']);
+          this.router.navigate(['dashboard']);
         });
     }
-
     logout() {
       console.log('loging out user');
       this.afAuth.auth.signOut();
       this.router.navigate(['login']);
     }
 
-    // signUp(email: string, gender:string, password: string, displayName: string,description:string,photo:string) {
-    //   return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-    //           .then((user) => {
-    //             console.log('councillor created');
-    //             this.authState = user;
-              
-    //           }).catch(err=>{
-    //             console.log(err);
+    signUp(email: string, gender:string, password: string, displayName: string,description:string,photo:string) {
+      return this.afAuth.auth.createUserWithEmailAndPassword(email, 'JKL234!TAB')
+              .then((user) => {
+                console.log('councillor created');
+                this.authState = user;
 
-    //             Materialize.toast(err,6000);
-    //             return false;
+              }).catch(err=>{
+                console.log(err);
+                return false;
 
-    //           });
-              
-    // }
+              });
+
+    }
 
     setUserData(councillor:Consellor): void {
       console.log('setting user data');
-      const path = `councillors/${this.currentUserId}`;
+    councillor.id = this.currentUserId;
+    console.log('submitting ........');
+const path = `councillors/${this.currentUserId}`;
 this.consellorsCollection.doc(this.currentUserId).set(councillor)
         .catch(error => console.log(error)).then((e)=>{
-            Materialize.toast("Councillor added",5000);
-          this.router.navigate(['/', 'dashboard']).then(nav => {
-            console.log(nav); // true if navigation is successful
-          }, err => {
-            console.log(err) // when there's an error
-          });
-           
+
+          // this.router.navigate(['/', 'dashboard']).then(nav => {
+          //   console.log(nav); // true if navigation is successful
+          // }, err => {
+          //   console.log(err) // when there's an error
+          // });
+
         });
     }
 

@@ -10,5 +10,5 @@ export interface Unit {
         open?: string;
         phone?: string;
         photo?:any;
-
+        updated?:any;
 }

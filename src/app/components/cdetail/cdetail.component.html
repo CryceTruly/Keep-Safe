@@ -1,0 +1,81 @@
+<nav>
+  <div class="nav-wrapper blue darken-1 z-index-5">
+    <div class="col s12">
+      <a href="#!" class="breadcrumb">Home</a>
+      <a href="#!" class="breadcrumb">Cases</a>
+      <a href="#!" class="breadcrumb">Case Detail</a>
+    </div>
+  </div>
+</nav>
+
+<div *ngIf='ready ; else wait'>
+
+<div class="row">
+
+
+  <div class="col s12 m12">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title" >{{ (thecase | async)?.reportedFrom }}</span>
+       <ul class="collection">
+
+        <li class="collection collection-item"><strong> What happened: </strong> <span> {{ (thecase | async)?.description }}</span></li>
+        <li class="collection collection-item"><strong> Where it happened:</strong> <span> {{ (thecase | async)?.district }}</span></li>
+        <li class="collection collection-item"><strong> When it happened :</strong> <span> {{ (thecase | async)?.happened }}</span></li>
+
+        <li class="collection collection-item"><strong> Reported by:</strong> <span> {{ (thecase | async)?.phone }}</span></li>
+
+        <li class="collection collection-item"><strong> Relationship with Victim:</strong> <span> {{ (thecase | async)?.reported_by }}</span></li>
+
+        <li class="collection collection-item"><strong> Case Reported:</strong> <span> {{ (thecase | async)?.reported | timeAgo}}</span></li>
+
+       </ul>
+
+        <p></p>
+      </div>
+      <div class="card-action">
+        <a ><i class="material-icons">star</i></a>
+        <a ><i class="material-icons">star</i></a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div class="row">
+
+    <div class="col s4">
+      <!-- Promo Content 1 goes here -->
+    </div>
+    <div class="col s4 center">
+      <!-- Promo Content 2 goes here -->
+      <ng-template #wait >
+          <div class="preloader">
+              <div class="preloader-wrapper big active align-center">
+                  <div class="spinner-layer spinner-green-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div><div class="gap-patch">
+                      <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+            </ng-template>
+    </div>
+    <div class="col s4">
+      <!-- Promo Content 3 goes here -->
+    </div>
+
+  </div>
+
+
+
+
+

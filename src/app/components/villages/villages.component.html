@@ -1,0 +1,17 @@
+
+<!-- CARDS -->
+<div class="card">
+    <div class="card-content">
+      <span class="card-title">Villages in {{district}}</span>
+
+  <ul class="collection" *ngIf="villages?.length>0; else novillages">
+    <li class="collection-item"  *ngFor="let item of villages"
+    [routerLink]="['/addvht',district,item.name]">{{item.name}}</li>
+  </ul>
+<ng-template #novillages>
+  <button class="btn" routerLink="/addvillage">None,add villages first</button>
+</ng-template>
+
+    </div>
+
+  </div>

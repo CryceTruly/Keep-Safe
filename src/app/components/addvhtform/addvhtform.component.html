@@ -1,0 +1,59 @@
+<div class="card">
+  <div class="card-title">Add VHT Member to {{selectedvillage}}</div>
+<form>
+    <div class="row">
+        <div class="file-field input-field  col s10">
+            <div class="btn">
+              <span>Pick Photo</span>
+              <input type="file" id="pickedphoto" (change)="detectFiles($event)">
+            </div>
+            <div class="file-path-wrapper col s2">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+
+          <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="icon_prefix" type="text" [(ngModel)]="vmember.name" name="name" required minlength="3" class="validate">
+              <label for="icon_prefix">Name</label>
+            </div>
+          <div class="input-field col s12">
+              <i class="material-icons prefix">phone</i>
+              <input id="icon_telephone" type="tel" class="validate" [(ngModel)]="vmember.phone" name="phone" minlength="12">
+              <label for="icon_telephone">Phone Number</label>
+            </div>
+
+
+
+      <div class="input-field col s12">
+          <i class="material-icons prefix">announcement</i>
+        <textarea type="text" [(ngModel)]="vmember.profile" maxlength="300" class="materialize-textarea" name="profile" minlength="25"></textarea>
+        <label for="">Profile Description</label>
+      </div>
+
+      <div class="input-field col s12">
+          <i class="material-icons prefix">device_hub</i>
+
+        <select name="selected" materialize="material_select"  [(ngModel)]="selected"
+        [materializeSelectOptions]="items">
+         <option *ngFor="let item of items" [value]="item">{{item}}</option>
+         </select>
+         <label >Choose gender</label>
+
+
+
+      </div>
+
+
+<div class="col s12 center-align">
+    <input type="submit" value="Submit" class="btn  waves-effect center-align" (click)="addVHT()">
+
+</div>
+
+
+    </div>
+
+
+  </form>
+
+</div>
