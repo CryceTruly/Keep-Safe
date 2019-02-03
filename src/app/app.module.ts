@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment.prod';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { HealthunittsComponent } from './components/healthunitts/healthunitts.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddhealthunitComponent } from './components/addhealthunit/addhealthunit.component';
@@ -36,7 +36,6 @@ import { AdddistrictComponent } from './components/adddistrict/adddistrict.compo
 import { AddvhtComponent } from './components/addvht/addvht.component';
 import { VillageComponent } from './components/village/village.component';
 import { LogginGuardGuard } from './guards/loggin-guard.guard';
-import { LoggedinGuardGuard } from './guards/loggedin-guard.guard';
 import { DistrictsComponent } from './components/districts/districts.component';
 import { VillagesComponent } from './components/villages/villages.component';
 import { AddvhtformComponent } from './components/addvhtform/addvhtform.component';
